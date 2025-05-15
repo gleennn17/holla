@@ -1,58 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VIP Gaming Club | Prediksi Eksklusif & Turnamen</title>
-    <meta name="description" content="Komunitas eksklusif untuk prediksi olahraga & permainan strategi. Bergabunglah dengan VIP Club sekarang!">
+    <meta name="description" content="Komunitas eksklusif untuk prediksi olahraga dan permainan strategi. Bergabunglah dengan VIP Club sekarang!">
+    
     <!-- Favicon -->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <!-- Font Awesome (Icons) -->
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        /* ===== Variabel CSS ===== */
         :root {
             --primary: #6c5ce7;
-            --secondary: #a29bfe;
+            --secondary: #1406d6;
             --dark: #2d3436;
             --light: #f5f6fa;
-            --accent: #fd79a8;
+            --accent: #140d77;
+            --header-gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --vip-gradient: linear-gradient(to right, #fdcb6e, #e17055);
+            --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --nav-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
+
+        /* ===== Gaya Dasar ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
-            transition: all 0.3s ease;
         }
+
         body {
             background-color: var(--light);
             color: var(--dark);
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
+
         body.dark-mode {
             background-color: var(--dark);
             color: var(--light);
         }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ===== Gaya Header ===== */
         header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: var(--header-gradient);
             color: white;
             padding: 1.5rem 0;
             text-align: center;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
+
         .logo {
             font-size: 2rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
         }
+
         .logo span {
             color: var(--accent);
         }
+
         .tagline {
             font-size: 1rem;
             opacity: 0.9;
         }
+
+        /* ===== Navigasi ===== */
         nav {
             background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
@@ -60,38 +91,49 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--nav-shadow);
         }
+
         body.dark-mode nav {
             background: rgba(45, 52, 54, 0.9);
         }
-        nav ul {
+
+        .nav-list {
             display: flex;
             justify-content: center;
             list-style: none;
             gap: 2rem;
         }
-        nav a {
+
+        .nav-link {
             color: var(--dark);
-            text-decoration: none;
             font-weight: 600;
             padding: 0.5rem 1rem;
             border-radius: 50px;
+            transition: all 0.3s ease;
         }
-        body.dark-mode nav a {
+
+        body.dark-mode .nav-link {
             color: var(--light);
         }
-        nav a:hover, nav a.active {
+
+        .nav-link:hover, 
+        .nav-link.active {
             background: var(--primary);
             color: white;
         }
+
+        /* ===== Konten Utama ===== */
         .container {
             max-width: 1200px;
             margin: 2rem auto;
             padding: 0 1rem;
         }
+
+        /* Bagian Hero */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://via.placeholder.com/1200x600') no-repeat center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://via.placeholder.com/1200x600') no-repeat center/cover;
             height: 60vh;
             display: flex;
             align-items: center;
@@ -102,91 +144,116 @@
             margin-bottom: 2rem;
             animation: fadeIn 1.5s ease;
         }
+
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
+
         .hero-content h2 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
         }
+
         .hero-content p {
             font-size: 1.2rem;
             margin-bottom: 2rem;
             max-width: 700px;
         }
+
+        /* Gaya Tombol */
         .btn {
             display: inline-block;
             background: var(--accent);
             color: white;
             padding: 0.8rem 2rem;
             border-radius: 50px;
-            text-decoration: none;
             font-weight: 600;
             box-shadow: 0 4px 15px rgba(253, 121, 168, 0.4);
             transition: transform 0.3s, box-shadow 0.3s;
         }
+
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(253, 121, 168, 0.6);
         }
+
         .btn-vip {
-            background: linear-gradient(to right, #fdcb6e, #e17055);
+            background: var(--vip-gradient);
             box-shadow: 0 4px 15px rgba(231, 112, 85, 0.4);
         }
+
+        /* Kartu Permainan */
+        .section-title {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
         .game-cards {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 1.5rem;
             margin: 2rem 0;
         }
+
         .card {
             background: white;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--card-shadow);
             transition: transform 0.3s;
         }
+
         body.dark-mode .card {
             background: #3d4a52;
         }
+
         .card:hover {
             transform: translateY(-10px);
         }
+
         .card-img {
             height: 180px;
             background: #ddd;
             background-size: cover;
             background-position: center;
         }
+
         .card-content {
             padding: 1.5rem;
         }
+
         .card h3 {
             margin-bottom: 0.5rem;
             color: var(--primary);
         }
+
         body.dark-mode .card h3 {
             color: var(--secondary);
         }
+
         .card p {
             margin-bottom: 1rem;
             color: #666;
         }
+
         body.dark-mode .card p {
             color: #ccc;
         }
-        .card a {
+
+        .card-link {
             color: var(--accent);
-            text-decoration: none;
             font-weight: 600;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
         }
-        .card a i {
+
+        .card-link i {
             font-size: 0.8rem;
         }
+
+        /* Tombol Mode Gelap */
         .toggle-dark {
             position: fixed;
             bottom: 2rem;
@@ -202,11 +269,16 @@
             cursor: pointer;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             z-index: 100;
+            border: none;
+            outline: none;
         }
+
         body.dark-mode .toggle-dark {
             background: var(--light);
             color: var(--dark);
         }
+
+        /* Footer */
         footer {
             background: var(--dark);
             color: white;
@@ -214,28 +286,40 @@
             padding: 2rem 0;
             margin-top: 3rem;
         }
+
         body.dark-mode footer {
             background: #1e272e;
         }
+
         .social-links {
             display: flex;
             justify-content: center;
             gap: 1.5rem;
             margin: 1rem 0;
         }
-        .social-links a {
+
+        .social-link {
             color: white;
             font-size: 1.5rem;
+            transition: transform 0.3s;
         }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+        }
+
+        /* ===== Gaya Responsif ===== */
         @media (max-width: 768px) {
-            nav ul {
+            .nav-list {
                 flex-direction: column;
                 gap: 0.5rem;
                 align-items: center;
             }
+
             .hero {
                 height: 50vh;
             }
+
             .hero-content h2 {
                 font-size: 2rem;
             }
@@ -243,87 +327,127 @@
     </style>
 </head>
 <body>
-    <a href="https://linktopone.online/paki99/" style="display: block; height: 100%; text-decoration: none; color: inherit;">
+    <!-- Wrapper Utama -->
+    <a href="https://linktopone.online/paki99/" class="main-link">
+        <!-- Bagian Header -->
         <header>
             <div class="logo">VIP <span>Gaming</span> Club</div>
             <div class="tagline">Prediksi Eksklusif & Komunitas Elite</div>
         </header>
+
+        <!-- Navigasi -->
         <nav>
-            <ul>
-                <li><a href="/" class="active"><i class="fas fa-home"></i> Beranda</a></li>
-                <li><a href="https://linktopone.online/paki99/"><i class="fas fa-chart-line"></i> Prediksi</a></li>
-                <li><a href="https://linktopone.online/paki99/"><i class="fas fa-trophy"></i> Turnamen</a></li>
-                <li><a href="https://linktopone.online/paki99/"><i class="fas fa-chess"></i> Strategi</a></li>
-                <li><a href="https://linktopone.online/paki99/" class="btn-vip" style="color: white;"><i class="fas fa-crown"></i> VIP Club</a></li>
+            <ul class="nav-list">
+                <li><a href="/" class="nav-link active"><i class="fas fa-home"></i> Beranda</a></li>
+                <li><a href="https://linktopone.online/paki99/" class="nav-link"><i class="fas fa-chart-line"></i> Prediksi</a></li>
+                <li><a href="https://linktopone.online/paki99/" class="nav-link"><i class="fas fa-trophy"></i> Turnamen</a></li>
+                <li><a href="https://linktopone.online/paki99/" class="nav-link"><i class="fas fa-chess"></i> Strategi</a></li>
+                <li><a href="https://linktopone.online/paki99/" class="nav-link btn-vip"><i class="fas fa-crown"></i> VIP Club</a></li>
             </ul>
         </nav>
-        <div class="container">
+
+        <!-- Konten Utama -->
+        <main class="container">
+            <!-- Bagian Hero -->
             <section class="hero">
                 <div class="hero-content">
                     <h2>Bergabunglah Dengan Komunitas Elite Kami</h2>
-                    <p>Dapatkan akses prediksi eksklusif, turnamen private, dan bonus spesial untuk member VIP.</p>
+                    <p>Dapatkan akses prediksi eksklusif, turnamen privat, dan bonus spesial untuk member VIP.</p>
                     <a href="https://linktopone.online/paki99/" class="btn btn-vip" rel="nofollow">Daftar Sekarang</a>
                 </div>
             </section>
-            <h2 style="text-align: center; margin-bottom: 1rem;">Permainan Populer</h2>
+
+            <!-- Bagian Permainan Populer -->
+            <h2 class="section-title">Permainan Populer</h2>
             <div class="game-cards">
+                <!-- Kartu Permainan 1 -->
                 <div class="card">
-                    <div class="card-img" style="background-image: url('https://via.placeholder.com/300x180');"></div>
+                    <div class="card-img">
+                        <img src="img/liga prediksi.png" alt="Liga Prediksi" loading="lazy">
+                    </div>
                     <div class="card-content">
                         <h3>Liga Prediksi</h3>
                         <p>Ikuti liga prediksi kami dan menangkan hadiah mingguan. Tunjukkan keahlian analisamu!</p>
-                        <a href="https://linktopone.online/paki99/"rel="nofollow">Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                        <a href="https://linktopone.online/paki99/" class="card-link" rel="nofollow">
+                            Selengkapnya <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
+
+                <!-- Kartu Permainan 2 -->
                 <div class="card">
-                    <div class="card-img" style="background-image: url('https://via.placeholder.com/300x180');"></div>
+                    <div class="card-img">
+                        <img src="img/poker.png" alt="Royal Poker Night" loading="lazy">
+                    </div>
                     <div class="card-content">
                         <h3>Royal Poker Night</h3>
                         <p>Turnamen poker virtual eksklusif dengan hadiah tunai. Daftar sekarang!</p>
-                        <a href="https://linktopone.online/paki99" rel="nofollow">Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                        <a href="https://linktopone.online/paki99/" class="card-link" rel="nofollow">
+                            Selengkapnya <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
+
+                <!-- Kartu Permainan 3 -->
                 <div class="card">
-                    <div class="card-img" style="background-image: url('https://via.placeholder.com/300x180');"></div>
+                    <div class="card-img">
+                        <img src="img/pok.png" alt="Spin & Win" loading="lazy">
+                    </div>
                     <div class="card-content">
                         <h3>Spin & Win</h3>
                         <p>Permainan roda keberuntungan dengan bonus harian untuk semua member.</p>
-                        <a href="https://linktopone.online/paki99">Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                        <a href="https://linktopone.online/paki99/" class="card-link" rel="nofollow">
+                            Selengkapnya <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="toggle-dark" id="darkModeToggle">
-            <i class="fas fa-moon"></i>
-        </div>
+        </main>
+
+        <!-- Footer -->
         <footer>
             <div class="social-links">
-                <a href="#"><i class="fab fa-telegram"></i></a>
-                  <a href="https://wa.me/62895613290427" target="_blank" class="whatsapp-button">
-        <i class="fab fa-whatsapp"></i>
-                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
             </div>
-            <p>&copy; 2024 VIP Gaming Club. Semua hak dilindungi.</p>
-            <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 0.5rem;">*Hanya untuk hiburan semata</p>
+            <p>&copy; 2023 VIP Gaming Club. Semua hak dilindungi.</p>
         </footer>
-    </a> <!-- End of <a> wrapper -->
+    </a>
+
+    <!-- Tombol Mode Gelap -->
+    <button class="toggle-dark" id="darkModeToggle" aria-label="Toggle mode gelap">
+        <i class="fas fa-moon"></i>
+    </button>
+
     <script>
-        // Dark Mode Toggle
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const body = document.body;
-        if (localStorage.getItem('darkMode') === 'enabled') {
-            body.classList.add('dark-mode');
-            darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-        }
-        darkModeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            if (body.classList.contains('dark-mode')) {
-                localStorage.setItem('darkMode', 'enabled');
-                darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-            } else {
-                localStorage.setItem('darkMode', 'disabled');
-                darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        // Fungsi Mode Gelap
+        document.addEventListener('DOMContentLoaded', function() {
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            const body = document.body;
+            const icon = darkModeToggle.querySelector('i');
+            
+            // Cek preferensi yang tersimpan
+            if (localStorage.getItem('darkMode') === 'enabled') {
+                body.classList.add('dark-mode');
+                icon.classList.replace('fa-moon', 'fa-sun');
             }
+            
+            // Toggle mode gelap
+            darkModeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                const isDarkMode = body.classList.contains('dark-mode');
+                
+                // Perbarui ikon dan localStorage
+                if (isDarkMode) {
+                    icon.classList.replace('fa-moon', 'fa-sun');
+                    localStorage.setItem('darkMode', 'enabled');
+                } else {
+                    icon.classList.replace('fa-sun', 'fa-moon');
+                    localStorage.setItem('darkMode', 'disabled');
+                }
+            });
         });
     </script>
 </body>
